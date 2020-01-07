@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 /** @title Basic datepicker */
 @Component({
   selector: 'datepicker-overview-example',
@@ -8,7 +8,13 @@ import {Component} from '@angular/core';
 })
 export class DatepickerOverviewExample {
 
-   startDate1 = new Date(1990, 0, 1);
+     minDate = new Date(2000, 0, 1);
+    maxDate = new Date(2020, 0, 1);
+    events: string[] = [];
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.events.push(`${type}: ${event.value}`);
+  }
 }
 
 

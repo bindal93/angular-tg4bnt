@@ -1,18 +1,23 @@
 TO:
 <mat-form-field>
-	<input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+	<input [(ngModel)]="date1" #variable ="ngModel" matInput [matDatepicker]="picker1" placeholder="Choose a date" (dateChange)="addEvent('date1', $event)">
 	<mat-datepicker-toggle matSuffix [for]="picker1">
     <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
   </mat-datepicker-toggle>
 	<mat-datepicker #picker1 startView="multi-year" [startAt]="startDate1"></mat-datepicker>
 </mat-form-field>
+{{date1}}
 <br>
 From:
 <mat-form-field>
-	<input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+	<input matInput [(ngModel)]="date2" #variable2 ="ngModel"  [matDatepicker]="picker2" placeholder="Choose a date"  (dateChange)="addEvent('date2', $event)"
+ [min]="minDate" [max]="maxDate">
 	<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 	<mat-datepicker #picker2></mat-datepicker>
 </mat-form-field>
+{{date2}}
+<br>
+{{events|json}}
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license -->    
